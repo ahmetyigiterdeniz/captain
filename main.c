@@ -47,7 +47,7 @@ void print_legal_list(char sea[8][8], int c, int d){
         }
     }
 
-    printf("\n\t===LEGAL MOVES===\n");
+    printf("\n\t LEGAL MOVES\n");
 
     for(i=0; i<3; i++){
         for(j=0; j<3; j++){
