@@ -8,9 +8,9 @@ void order_pieces(char sea[8][8]){
         for(i=0;i<8;i++){
                 for(j=0;j<8;j++){
                     if(i*j%3==1)
-                        sea[i][j] = ' ';
+                        sea[i][j] = ' '; // Defining empty slots.
                     else 
-                        sea[i][j] = 'G';
+                        sea[i][j] = 'S'; // Defining full ones.
                 }
         }
 }
