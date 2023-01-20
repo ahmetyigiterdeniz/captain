@@ -32,29 +32,40 @@ void print_point(char sea[8][8], int a, int b){
 }
 
 void print_legal_list(char sea[8][8], int c, int d){
-    char* legal_moves[3][3];
-    int e,f,g,h;
-    for(g=0; g<3; g++){
-        for(h=0; h<3; h++){
-            for(e=-1; e<2; e++){
-                for(f=-1; f<2; f++){
-                    if(sea[c+e][d+f]==' '){
-                        legal_moves[g][h] = "%d %d", c+e, d+f;
-                    }
+    int legal_moves[3][3], i, j;
+    for(i=-1;i<2;i++){
+        for(j=-1;j<2;j++){
+            if(j==0 && i==0){
+                legal_moves[1][1] = 1;
+            } else{
+                if(sea[c+i][d+j] == ' '){
+                    legal_moves[1-i*-1][1-j*-1] = 1;
+                } else{
+                    legal_moves[1-i*-1][1-j*-1] = 0;
                 }
             }
         }
     }
-    for(g=0; g<3; g++)
-        for(h=0; h<3; h++)
-            printf("%s", legal_moves[g][h]);
+
+    printf("\n\t===LEGAL MOVES===\n");
+
+    for(i=0; i<3; i++){
+        for(j=0; j<3; j++){
+            printf("[ %d ]\t", legal_moves[i][j]);
+            if(j==2){
+                printf("\n");
+            }
+        }
+    }
 }
 
-int main(int i, int j) {
+int main(legal_moves) {
     char sea[8][8];
+    int x = 0; // You can change the spot
+    int y = 0; // with x and y.
     order_pieces(sea);
-    print_point(sea, 0, 0);
+    print_point(sea, x, y);
     print_sea(sea);
-    print_legal_list(sea, 3, 2);
+    print_legal_list(sea, x, y);
     return 0;
 }
